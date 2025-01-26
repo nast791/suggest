@@ -1,6 +1,6 @@
 <template>
 	<div class="index page">
-		<Suggest :minlength="minlength" :delay="delay" :func="searchItem">
+		<Suggest :minlength="minlength" :delay="delay" :func="searchItem" :size="size">
 			<span>*</span> Пользователь или компания
 			<template #result="{item}">
 				<component
@@ -24,6 +24,7 @@ import {searchItem} from "@/api/suggest";
 
 const delay = 1000;
 const minlength = 3;
+const size = 4;
 </script>
 
 <style lang="scss" scoped>
