@@ -1,0 +1,82 @@
+:root {
+  //@media (min-width: 769px) {
+  //  --scale: 100vw / 1920;
+  //}
+}
+
+html,
+body {
+  min-width: 360px;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain !important;
+}
+
+html {
+  position: relative;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Raleway", Arial, sans-serif;
+  line-height: 1.2;
+  font-size: 16px;
+  color: #1C1C1C;
+  font-weight: 600;
+  background-color: #F5F5F6;
+  width: 100%;
+  height: 100%;
+  font-variant-ligatures: no-common-ligatures;
+  font-variant-numeric: lining-nums;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+//::-webkit-scrollbar {
+//  width: 6px;
+//  height: 6px;
+//  border-radius: 10px;
+//  cursor: pointer;
+//  @media (max-width: 1024px) {
+//    width: 0;
+//  }
+//}
+//::-webkit-scrollbar-thumb {
+//  background: #1c1c1c;
+//  border-radius: 10px;
+//}
+//::-webkit-scrollbar-track {
+//  background-color: #e0e1e5;
+//  border-radius: 10px;
+//}
+
+.main{
+  overflow: hidden;
+}
+
+.layout-default{
+  position: relative;
+}
+
+#app {
+  //position: relative;
+  margin: 0;
+  font-family: "Raleway", Arial, sans-serif;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: left;
+  * {
+    outline: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}

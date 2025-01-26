@@ -1,0 +1,31 @@
+<template>
+	<div class="index page">
+		<Suggest :minlength="minlength" :delay="delay" :func="searchItem">
+			<span>*</span> Пользователь или компания
+			<template #result="{item}">
+				<component
+					:is="[User, Company].find(i => i.__name.toLowerCase() === item.type)"
+					:key="item.alias"
+					:alias="`@${item.alias}`"
+					:avatar="item.avatar"
+					:name="item.name"
+					v-if="[User, Company].find(i => i.__name.toLowerCase() === item.type)"
+				/>
+			</template>
+		</Suggest>
+	</div>
+</template>
+
+<script setup>
+import User from "@/components/molecules/User.vue";
+import Company from "@/components/molecules/Company.vue";
+import Suggest from "@/components/molecules/Suggest.vue";
+import {searchItem} from "@/api/suggest";
+
+const delay = 1000;
+const minlength = 3;
+</script>
+
+<style lang="scss" scoped>
+
+</style>
