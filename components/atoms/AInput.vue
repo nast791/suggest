@@ -73,7 +73,6 @@ onMounted(() => {
 .input {
 	position: relative;
 	display: inline-block;
-	width: 100%;
 	input {
 		width: 100%;
 		border-radius: 4px;

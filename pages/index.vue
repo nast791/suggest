@@ -1,7 +1,7 @@
 <template>
 	<div class="index page">
-		<Suggest :minlength="minlength" :delay="delay" :func="searchItem" :size="size">
-			<span>*</span> Пользователь или компания
+		<Suggest :minlength="minlength" :delay="delay" :func="searchItem" :size="size" :count="count">
+			<span>*</span> Пользователь или компания (до {{count}})
 			<template #result="{item}">
 				<component
 					:is="[User, Company].find(i => i.__name.toLowerCase() === item.type)"
@@ -25,6 +25,7 @@ import {searchItem} from "@/api/suggest";
 const delay = 1000;
 const minlength = 3;
 const size = 4;
+const count = 10;
 </script>
 
 <style lang="scss" scoped>

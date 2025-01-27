@@ -6,10 +6,10 @@ export default async function useApiFetch(url, options, version = 1) {
 		accept: "application/json",
 	}
 
-	let data;
+	const data = {};
 
 	try {
-		data = await $fetch(url, {
+		const response = await $fetch(url, {
 			credentials: process.server ? "include" : "same-origin",
 			watch: false,
 			...options,
@@ -18,19 +18,20 @@ export default async function useApiFetch(url, options, version = 1) {
 				...options?.headers
 			}
 		});
+		data.data = response?.data || response;
 	}
 	catch (e) {
-		console.log(e.statusCode)
-		e.statusCode ? errorHandler(e.statusCode) : errorHandler(500);
+		// e.statusCode ? errorHandler(e.statusCode) : errorHandler(500);
+		data.error = e.statusCode;
 	}
 	return data;
 }
 
-const errorHandler = (code) => {
-	showError({ statusCode: code, message: 'Error' })
-	throw createError({
-		statusCode: code,
-		message: 'Error',
-		fatal: true
-	});
-}
+// const errorHandler = (code) => {
+// 	showError({ statusCode: code, message: 'Error' })
+// 	throw createError({
+// 		statusCode: code,
+// 		message: 'Error',
+// 		fatal: true
+// 	});
+// }
